@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name:Demo
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demoapppod
+  labels:
+    app: demoapp
+  Namespace: Demo  
+spec:
+  containers:
+  - name: tomcat
+    image: antonydavid96/mywar
+    ports:
+      - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoappservice
+  Namespace: Demo    
+spec: LoadBalancer
+  selector:
+    app: demoapp
+  ports:
+    - port: 80
+      targetPort: 8080

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demoapppod
+spec:
+  containers:
+  - name: tomcat
+    image: antonydavid96/mywar:2.0
+    ports:
+    - containerPort: 80
