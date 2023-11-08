@@ -27,7 +27,7 @@ stage('push to hub') {
 stage('Deploy') {
             steps {
                script{
-                 sh 'docker run -itd --name tem -p 8081:8080 antonydavid96/tem:1'
+                 sh 'docker run -itd --name demo -p 80:80 antonydavid96/tem:1'
     }
 }
 }
