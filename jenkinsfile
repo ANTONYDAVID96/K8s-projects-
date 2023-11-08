@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-        git branch: 'war', url: 'https://github.com/ANTONYDAVID96/war-project.git'
+        git branch: 'main', url: 'https://github.com/ANTONYDAVID96/K8s-projects-.git'
             }
         }
         stage('build') {
@@ -16,7 +16,7 @@ pipeline {
 stage('build to images') {
             steps {
                script{
-                  bat 'docker build -t antonydavid96/mywar:2.0 .'
+                  sh 'docker build -t antonydavid96/tem:1 .'
                }
     }
 }
@@ -26,14 +26,14 @@ stage('push to hub') {
                   withCredentials([string(credentialsId: 'DavidDockerAntony', variable: 'docker_warfile')]) {
                      sh "docker login -u antonydavid96 -p ${docker_warfile}"
                   }
-                  bat 'docker push antonydavid96/mywar:2.0'
+                 sh 'docker push antonydavid96/tem:1'
                }
             }
 }
 stage('Deploy') {
             steps {
                script{
-                  bat 'docker run -itd --name tomcat -p 8081:8080 antonydavid96/mywar:2.0'
+                 sh 'docker run -itd --name tem -p 8081:8080 antonydavid96/tem:1'
     }
 }
 }
