@@ -7,12 +7,6 @@ pipeline {
         git branch: 'main', url: 'https://github.com/ANTONYDAVID96/K8s-projects-.git'
             }
         }
-        stage('build') {
-            steps {
-               sh "mvn clean"
-               sh "mvn install"
-}
-}
 stage('build to images') {
             steps {
                script{
