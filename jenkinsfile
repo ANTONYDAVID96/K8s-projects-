@@ -10,7 +10,7 @@ pipeline {
 stage('build to images') {
             steps {
                script{
-                  sh 'docker build -t antonydavid96/tem:1 .'
+                  sh 'docker build -t antonydavid96/templet:1.'
                }
     }
 }
@@ -20,15 +20,14 @@ stage('push to hub') {
                   withCredentials([string(credentialsId: 'DavidDockerAntony', variable: 'docker_warfile')]) {
                      sh "docker login -u antonydavid96 -p ${docker_warfile}"
                   }
-                 sh 'docker push antonydavid96/tem:1'
+                 sh 'docker push antonydavid96/templet:1'
                }
             }
 }
 stage('Deploy') {
             steps {
-               script{
-                 sh 'docker run -itd --name demo -p 80:80 antonydavid96/tem:1'
-    }
+              sh 'kubectl apply -f deployment.yml'
+    
 }
 }
     }
