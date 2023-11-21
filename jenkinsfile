@@ -17,8 +17,8 @@ stage('build to images') {
 stage('push to hub') {
             steps {
                script{
-                  withCredentials([string(credentialsId: 'DavidDockerAntony', variable: 'docker_warfile')]) {
-                     sh "docker login -u antonydavid96 -p ${docker_warfile}"
+                 withCredentials([string(credentialsId: 'kubctl_demo', variable: 'demo')]) {
+                     sh "docker login -u antonydavid96 -p ${demo}"
                   }
                  sh 'docker push antonydavid96/templet:1'
                }
