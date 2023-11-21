@@ -5,7 +5,7 @@ metadata:
   labels:
     app: david
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: david
@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: tomcat
-         image: antonydavid96/mywar
+         image: antonydavid96/templet:1
         ports:
-         - containerPort: 8080
+         - containerPort: 9090
 
 ---
 apiVersion: v1
@@ -31,5 +31,5 @@ spec:
     app: david
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 9090
       nodePort: 30005
