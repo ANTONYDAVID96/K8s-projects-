@@ -15,7 +15,7 @@ spec:
         app: david
     spec:
       containers:
-      - name: tomcat
+      - name: templet
          image: antonydavid96/templet:1
         ports:
          - containerPort: 9090
