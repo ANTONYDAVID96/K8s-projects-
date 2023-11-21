@@ -10,7 +10,7 @@ pipeline {
 stage('build to images') {
             steps {
                script{
-                  sh 'docker build -t antonydavid96/templet:1.'
+                  sh 'docker build -t antonydavid96/templet:1 .'
                }
     }
 }
