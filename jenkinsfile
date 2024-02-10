@@ -10,7 +10,7 @@ pipeline {
 stage('build to images') {
             steps {
                script{
-                  sh 'docker build -t antonydavid96/templet:1 .'
+                  sh 'docker build -t antonydavid96/temfile:1 .'
                }
     }
 }
@@ -20,7 +20,7 @@ stage('push to hub') {
                  withCredentials([string(credentialsId: 'kubctl_demo', variable: 'demo')]) {
                      sh "docker login -u antonydavid96 -p ${demo}"
                   }
-                 sh 'docker push antonydavid96/templet:1'
+                 sh 'docker push antonydavid96/temfile:1'
                }
             }
 }
