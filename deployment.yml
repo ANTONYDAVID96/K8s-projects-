@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: templet
-         image: antonydavid96/templet:1
+         image: antonydavid96/temfile:1
         ports:
          - containerPort: 9090
 
